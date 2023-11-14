@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;700&display=swap');
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+/* Pilih Font */
+h1, p{
+  color: #1E1E1E;
+  font-family: Plus Jakarta Sans;
+}
+
+/* Nama*/
+h1{
+  font-weight: 700;
+  font-size: 24px;
+  line-height: normal;
+}
+
+/* NIM dan BIO*/
+p{
+  font-weight: 400;
+  font-size: 16px;
+  line-height: normal;
+}
+
+/* Profile Picture*/
+.profile-header-banner{
+  width: 120px;
+  height: 120px;
+  
+  position: relative;
+}
+
+/* Body website */
+.body{
+  background-color: #F4F4F4;
+
+  /* Fill Container di Figma == 100% di JS*/
+  width: 100vw; 
+  height: 100vh;
+
+  /* Arah Flex */
+  display: flex;
+  flex-direction: column;
+
+  /* Kasih ke tengah flex */
+  align-items: center;
+  justify-content: center;
+}
+
+/* Container */
+.banner-container{
+  display: flex;
+  width: 442px;
+  padding: 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  flex-shrink: 0;
+  background-color: white;
+  border-radius: 24px;
+}
+/* Header Container */
+.header-banner-wrapper{
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+/* Content Container */
+.content-header-banner{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+/*CTA*/
+.cta-banner-wrapper{
+  width: 100%;
+}
+input[type="text"]{
+  width: 393px; /* Atur lebar kotak teks sesuai kebutuhan */
+  height: 40px;
+  border-radius: 12px;
+  padding: 5px;
+}
+.cta-button{
+  display: flex;
+  padding: 10px 150px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  align-self: stretch;
+  border-radius: 12px;
+  background: #A7322A;
+
+}
+.cta-button p{
+  font-weight: 700;
+}
