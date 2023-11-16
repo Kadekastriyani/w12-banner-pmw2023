@@ -1,7 +1,7 @@
 'use client'
 import { useState, useRef } from 'react';
 import Image from 'next/image';
-import './globals.css';
+import '@styles/home.css';
 
 export default function Home() {
   const [nama, setNama] = useState('Kadek Astri Yani');
@@ -14,18 +14,18 @@ export default function Home() {
     }
   }
 
-  function handleInputChange(event) {
+  function handlerInputChange(event) {
     setInputNama(event.target.value);
   }
 
-  function handleInputKeyPress(event) {
+  function handlerInputKeyEnter(event) {
     if (event.key === 'Enter') {
       handlerGantiNama();
     }
   }
 
   return (
-    <div className='body'>
+    <>
       <div className="banner-container">
         {/* Kartunya */}
         <div className="header-banner-wrapper">
@@ -54,8 +54,8 @@ export default function Home() {
           <input
             type="text"
             value={inputNama}
-            onChange={handleInputChange}
-            onKeyPress={handleInputKeyPress}
+            onChange={handlerInputChange}
+            onKeyDown={handlerInputKeyEnter}
             placeholder="Tuliskan Namamu"
             ref={inputRef}
           />
@@ -69,6 +69,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
