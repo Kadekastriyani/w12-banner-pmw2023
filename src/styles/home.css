@@ -62,6 +62,7 @@ input[type="text"]{
   height: 40px;
   border-radius: 12px;
   padding: 5px;
+  margin-bottom: 10px;
 }
 .cta-button{
   display: flex;
@@ -72,8 +73,10 @@ input[type="text"]{
   align-self: stretch;
   border-radius: 12px;
   background: #A7322A;
-
 }
 .cta-button p{
   font-weight: 700;
+}
+.disabled{
+  background-color: gray;
 }

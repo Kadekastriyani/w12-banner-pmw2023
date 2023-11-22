@@ -9,7 +9,7 @@
   /* Body website */
 body{
     background-color: #F4F4F4;
-  
+    padding-top: 120px;
     /* Fill Container di Figma == 100% di JS*/
     width: 100vw; 
     height: 100vh;
@@ -21,5 +21,6 @@ body{
   
     /* Kasih ke tengah flex */
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    
   }

@@ -1,26 +1,31 @@
 'use client'
-import { useState, useRef } from 'react';
-import Image from 'next/image';
-import '@styles/home.css';
+import { useState } from "react";
+import Image from "next/image";
+import "@styles/home.css";
 
 export default function Home() {
-  const [nama, setNama] = useState('Kadek Astri Yani');
-  const [inputNama, setInputNama] = useState(''); // State untuk input teks
-  const inputRef = useRef(null); // Referensi ke elemen input teks
+  const [isSimpan, setSimpan] = useState(""); // State untuk nilai input
+  const [nama, setNama] = useState("Kadek Astri Yani");
 
-  function handlerGantiNama() {
-    if (inputNama) {
-      setNama(inputNama);
+  function handlerInputNama(event) {
+    setSimpan(event.target.value);
+  }
+
+  function handlerSubmit() {
+    if (isSimpan.trim() !== "") {
+      setNama(isSimpan);
+    } else {
+      alert("Nama tidak boleh kosong!");
     }
   }
 
-  function handlerInputChange(event) {
-    setInputNama(event.target.value);
-  }
-
-  function handlerInputKeyEnter(event) {
-    if (event.key === 'Enter') {
-      handlerGantiNama();
+  function handlerKeyEnter(e) {
+    if (e.key === "Enter") {
+      if (isSimpan.trim() !== "") {
+        setNama(isSimpan);
+      } else {
+        alert("Nama tidak boleh kosong!");
+      }
     }
   }
 
@@ -36,7 +41,7 @@ export default function Home() {
               src="/assets/profil.png"
               alt="Picture of the author"
               fill
-              objectFit='contain'
+              objectFit="contain"
             />
           </div>
           <div className="content-header-banner">
@@ -50,25 +55,26 @@ export default function Home() {
           </div>
         </div>
         <div className="cta-banner-wrapper">
-          {/* Input teks */}
-          <input
-            type="text"
-            value={inputNama}
-            onChange={handlerInputChange}
-            onKeyDown={handlerInputKeyEnter}
-            placeholder="Tuliskan Namamu"
-            ref={inputRef}
-          />
           {/* Tombol CTA */}
-          <div className='cta-button' 
-          style={{
-            marginTop: '12px'
-          }}
-          onClick={handlerGantiNama}>
-            <p>Ganti Nama</p>
-          </div>
+          <input
+            name="input-nama"
+            type="text"
+            placeholder="Tuliskan namamu.."
+            onChange={handlerInputNama}
+            onKeyDown={handlerKeyEnter}
+          />
+          {isSimpan.trim() !== "" ? (
+            <div className="cta-button" onClick={handlerSubmit}>
+              <p>Ganti nama</p>
+            </div>
+          ) : (
+            <div className="cta-button disabled" onClick={() => alert("Nama tidak boleh kosong!")}>
+              <p>Disabled</p>
+            </div>
+          )}
         </div>
       </div>
+      
     </>
   );
 }
